@@ -1,0 +1,190 @@
+.logo {
+	display: flex;
+	align-items: center;
+	color: $black;
+	text-decoration: none;
+
+	&__img {
+		margin-right: 10px;
+	}
+
+	&__label {
+		font-family: "Poppins", serif;
+		font-weight: 500;
+		line-height: 24px;
+		text-transform: uppercase;
+	}
+
+	@media screen and (max-width: $tab) {
+		&__img {
+			width: 23px;
+			height: 23px;
+			margin-right: 0;
+		}
+	}
+}
+
+.menu {
+	&__item {
+		margin-bottom: 46px;
+	}
+
+	&__link {
+		$s: &;
+
+		display: flex;
+		position: relative;
+		text-decoration: none;
+		align-items: center;
+		color: $black;
+		transition: color .3s ease;
+
+		&-img {
+			margin-right: 15px;
+
+			path {
+				transition: stroke .3s ease;
+			}
+		}
+
+		&::before {
+			position: absolute;
+			content: "";
+			height: 100%;
+			width: 3px;
+			background-color: $ac;
+			left: -42px;
+			opacity: 0;
+			transition: opacity .3s ease;
+		}
+
+		&.active, &:hover {
+			color: $ac;
+
+			&::before {
+				opacity: 1;
+			}
+
+			#{$s} {
+
+				&-img {
+					path {
+						stroke: $ac;
+					}
+				}
+			}
+		}
+	}
+}
+
+.card {
+	position: relative;
+	$width: 100%;
+	$height: auto;
+	width: $width;
+	height: $height;
+	cursor: pointer;
+	filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.15));
+
+	&__inner {
+		position: relative;
+		padding: 16px 20px;
+		z-index: 2;
+		width: $width;
+		height: $height;
+		clip-path: url('#path');
+		background-color: #fff;
+	}
+
+	&__title {
+		color: #000;
+		text-transform: uppercase;
+		margin-bottom: 4px;
+		letter-spacing: 0.1em;
+	}
+
+	&__desc {
+		font-size: 16px;
+		line-height: 16px;
+		opacity: .5;
+		margin-bottom: 43px;
+	}
+
+	&__cupon {
+		font-size: 36px;
+		line-height: 28px;
+		margin-bottom: 43px;
+		color: $red;
+		font-weight: 500;
+		margin-bottom: 6px;
+		text-transform: uppercase;
+	}
+
+	&__label {
+		font-size: 16px;
+		line-height: 16px;
+		color: #000;
+		letter-spacing: 0.4em;
+		text-transform: uppercase;
+	}
+
+	&__img {
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 100%;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		clip-path: url('#path');
+		background-color: $red;
+		top: -2px;
+		left: -2px;
+		width: calc(100% + 4px);
+		height: calc(100% + 4px);
+		opacity: 0;
+		transition: opacity .3s ease;
+		will-change: opacity;
+	}
+
+	&:hover {
+		&::before {
+			opacity: 1;
+		}
+	}
+
+	@media screen and (max-width: $tab) {
+		&__title, &__desc {
+			font-size: 14px;
+		}
+
+		&__desc {
+			margin-bottom: 31px;
+		}
+	}
+
+	@media screen and (max-width: $mob) {
+		&__title, &__desc, &__label {
+			font-size: 12px;
+		}
+
+		&__desc {
+			margin-bottom: 24px;
+		}
+
+		&__cupon {
+			font-size: 28px;
+			line-height: 24px;
+		}
+
+		&__img {
+			position: absolute;
+			right: 0;
+			top: auto;
+			bottom: 0;
+			height: 70%;
+		}
+	}
+}

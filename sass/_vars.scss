@@ -1,0 +1,14 @@
+// Общие настройки
+$font-formats: ("eot", "woff", "ttf"); // Доступны в snippets - eot, woff2, woff, ttf, svg
+$url-img: "../img"; // Путь к изображениям
+$url-font: "../fonts"; // Путь к шрифтам
+
+// Переменные цветов
+$ac: #34ABE0;
+$red: #DF212D;
+$grey: #C4C4C4;
+$black: #333333;
+
+//break-points
+$tab: 1440px;
+$mob: 768px;
